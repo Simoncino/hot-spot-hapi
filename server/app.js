@@ -11,7 +11,7 @@ server.connection({
 // Register webpack HMR, fallback to development environment
 if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
 
-  const WebpackConfig = require('./config/webpack.config.js'); // Webpack config
+  const WebpackConfig = require('../config/webpack.config.js'); // Webpack config
   const HapiWebpackDevMiddleware = require('hapi-webpack-dev-middleware');
   const HapiWebpackHotMiddleware = require('hapi-webpack-hot-middleware');
 
@@ -97,7 +97,7 @@ server.register([Inert], function (err) {
     method: 'GET',
     path: '/{path*}',
     handler: function (request, reply) {
-      reply.file('./public/index.html');
+      reply.file('../public/index.html');
     }
   });
 });

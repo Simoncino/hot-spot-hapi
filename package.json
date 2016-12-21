@@ -3,7 +3,7 @@
   "description": "A Hapi Vue project",
   "author": "IlSima <simone.lacarpia@gmail.com>",
   "scripts": {
-    "dev": "gulp",
+    "dev": "node ./server/app.js",
     "build": "webpack --progress --hide-modules --config config/production.webpack.config.js"
   },
   "dependencies": {

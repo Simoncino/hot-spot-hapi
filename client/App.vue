@@ -14,7 +14,7 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Welcome!',
+      msg: 'Welcome! simone',
       api: '',
       error: {}
     }
@@ -23,7 +23,7 @@ export default {
     helloCall: function() {
       this.$http.get('/api/call').then((response) => {
         this.api = response.data.message
-        this.msg = response.data.bestemmia
+        this.msg += response.data.bestemmia + " FIARPEOLO, oppure PAOLO"
       }, (response) => {
         this.error = response.data
       })
