@@ -102,6 +102,25 @@ server.register([Inert], function (err) {
   });
 });
 
+// Example api call
+  server.route({
+    method: 'POST',
+    path: '/api/login',
+    handler: function (request, reply) {
+      const user = request.params.user
+      console.log(user)
+      let result = {
+        success: false,
+        message: 'PORCA MADONNA'
+      };
+      if(user && user.username && user.password){
+          result.success = true;
+          result.message = 'Loggato correttamente';
+      }
+      reply(result);
+    }
+  });
+
 server.start((err) => {
 
   if (err) {

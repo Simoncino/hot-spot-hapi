@@ -8,6 +8,9 @@ Vue.use(VueResource) // Web requests, Vue plugin
 
 new Vue({
   el: '#app',
+  data: {
+  	user: {}
+  },
   components: {
     App
   }
