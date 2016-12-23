@@ -3,6 +3,8 @@
 const Hapi = require('hapi');
 const Inert = require('inert');
 
+const funzioni = require('./funzioni.js');
+
 const server = new Hapi.Server();
 server.connection({
   port: 3000
@@ -103,23 +105,11 @@ server.register([Inert], function (err) {
 });
 
 // Example api call
-  server.route({
-    method: 'POST',
-    path: '/api/login',
-    handler: function (request, reply) {
-      const user = request.params.user
-      console.log(user)
-      let result = {
-        success: false,
-        message: 'PORCA MADONNA'
-      };
-      if(user && user.username && user.password){
-          result.success = true;
-          result.message = 'Loggato correttamente';
-      }
-      reply(result);
-    }
-  });
+server.route({
+  method: 'POST',
+  path: '/api/login',
+  handler: funzioni.loginHandler 
+});
 
 server.start((err) => {
 

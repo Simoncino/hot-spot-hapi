@@ -26,24 +26,37 @@
       }
     },
     methods: {
-      helloCall: function() {
-        this.$http.get('/api/call').then((response) => {
+     /* helloCall: function() {
+        this.axios.get('/api/call').then((response) => {
           this.api = response.data.message
           this.msg += response.data.bestemmia + " FIARPEOLO, oppure PAOLO"
         }, (response) => {
           this.error = response.data
         })
-      },
+      },*/
       loginClick: function(){
         if(this.logUser && this.logUser.username && this.logUser.password){
-          this.$http.post('/api/login', {user: this.logUser})
-          .then((response) => {
-            this.success = 'A CANNONE!!!!!'
-            this.error = ''
-          }, (response) => {
-            this.error = response.data
-            this.success = ''
-          })
+          let user = {};
+          user.username = this.logUser.username;
+          user.password = this.logUser.password;
+          this.axios({
+            method: 'POST',
+            url: '/api/login',
+            data: user
+          }).then((response) => {
+            const result = response.data;
+            if(result.success){
+             this.success = 'A CANNONE!!!!!' + result.message;
+             this.error = '';
+           } else {
+            this.success = '';
+            this.error = result.message;
+          }
+
+        }, (response) => {
+          this.error = response.data
+          this.success = ''
+        })
         } else {
           this.error = 'L\'username e la password sono obbligatori!';
         }

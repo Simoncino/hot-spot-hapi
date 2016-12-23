@@ -12,9 +12,10 @@ module.exports = {
     filename: 'build/build.js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['', '.js', '.vue', '.json'],
     alias: {
       'client': path.resolve(__dirname, '../client'),
+      'server': path.resolve(__dirname, '../server'),
       'components': path.resolve(__dirname, '../clients/components'),
       'vue$': 'vue/dist/vue.common.js'
     }
@@ -28,7 +29,8 @@ module.exports = {
       loader: 'vue'
     }, {
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader',
+      include: path.resolve(__dirname, '../'),
       exclude: /node_modules/
     }, {
       test: /\.json$/,
