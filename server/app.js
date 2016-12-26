@@ -104,12 +104,18 @@ server.register([Inert], function (err) {
   });
 });
 
-// Example api call
 server.route({
   method: 'POST',
   path: '/api/login',
   handler: funzioni.loginHandler 
 });
+
+server.route({
+  method: 'GET',
+  path: '/api/simpleList',
+  handler: funzioni.getSimpleList 
+});
+
 
 server.start((err) => {
 

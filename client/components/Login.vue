@@ -12,21 +12,18 @@
       {{success}}
     </div>
 
-    <hr>
-    <hr>
-    <SimpleList></SimpleList>
-
   </div>
   
 </template>
 
 <script>
-import SimpleList from './components/SimpleList.vue'
-
+/*
+  TODO DA SISTEMARE è SOLO IN FASE EMBRIONALE
+  SE LA LOGIN VA BENE BISOGNA CREARE IL REDIREZIONAMENTO ALLA HOME
+  BISOGNA INOLTRE METTERE QUESTO FILE IN UNA CARTELLA PER SEPARARLO 
+  DAL CASINO CHE VERRà DOPO
+*/
   export default {
-    components: {
-      SimpleList
-    },
     data: function() {
       return {
         logUser: {},
@@ -35,14 +32,6 @@ import SimpleList from './components/SimpleList.vue'
       }
     },
     methods: {
-     /* helloCall: function() {
-        this.axios.get('/api/call').then((response) => {
-          this.api = response.data.message
-          this.msg += response.data.bestemmia + " FIARPEOLO, oppure PAOLO"
-        }, (response) => {
-          this.error = response.data
-        })
-      },*/
       loginClick: function(){
         if(this.logUser && this.logUser.username && this.logUser.password){
           let user = {};
