@@ -50,7 +50,7 @@ import SimpleRow from './SimpleRow.vue'
            this.success = 'A CANNONE!!!!!' + result.message;
            this.error = '';
            this.simpleList = result.lista;
-           console.log(this.simpleList);
+           /*console.log(this.simpleList);*/
          } else {
           this.success = '';
           this.error = result.message;

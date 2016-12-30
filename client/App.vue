@@ -1,5 +1,6 @@
 <template>
   <div class="containerLogin">
+    <h2>{{varfiglio}}</h2>
     <label for="idUsername">Username:</label>
     <input id="idUsername" type="text" placeholder="username" v-model.trim="logUser.username">
     <label for="idPassword">Password:</label>
@@ -15,34 +16,48 @@
     <hr>
     <hr>
     <SimpleList></SimpleList>
-
+    <hr>
+    <router-link to="/foo">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+    <hr>
+    <router-view></router-view>
+    <hr><hr>
+    showLogin : {{showLogin}}
+    <div v-if="showLogin">
+     <Login v-on:logged="showTrue"></Login> 
+   </div>
+   <div v-else>
+    <SimpleList></SimpleList>
   </div>
-  
+</div>
+
 </template>
 
 <script>
-import SimpleList from './components/SimpleList.vue'
+  import SimpleList from './components/SimpleList.vue'
+  import Login from './components/Login.vue'
 
   export default {
+    props: {
+      logUser: {},
+      varfiglio: ''
+    },
     components: {
-      SimpleList
+      SimpleList,
+      Login
     },
     data: function() {
       return {
-        logUser: {},
         error: '',
-        success: ''
+        success: '',
+        showLogin: true
       }
     },
     methods: {
-     /* helloCall: function() {
-        this.axios.get('/api/call').then((response) => {
-          this.api = response.data.message
-          this.msg += response.data.bestemmia + " FIARPEOLO, oppure PAOLO"
-        }, (response) => {
-          this.error = response.data
-        })
-      },*/
+      showTrue: function(){
+        console.log('showTrue: function(){');
+        this.showLogin = false;
+      },
       loginClick: function(){
         if(this.logUser && this.logUser.username && this.logUser.password){
           let user = {};
@@ -54,6 +69,7 @@ import SimpleList from './components/SimpleList.vue'
             data: user
           }).then((response) => {
             const result = response.data;
+            this.showLogin = !result.success;
             if(result.success){
              this.success = 'A CANNONE!!!!!' + result.message;
              this.error = '';
@@ -61,6 +77,8 @@ import SimpleList from './components/SimpleList.vue'
             this.success = '';
             this.error = result.message;
           }
+
+          console.log("aaaaaaaaaaa"+this.showLogin);
 
         }, (response) => {
           this.error = response.data

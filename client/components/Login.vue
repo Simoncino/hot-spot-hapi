@@ -4,7 +4,7 @@
     <input id="idUsername" type="text" placeholder="username" v-model.trim="logUser.username">
     <label for="idPassword">Password:</label>
     <input id="idPassword" type="password" placeholder="password" v-model.trim="logUser.password">
-    <button v-on:click="loginClick" >Login</button>
+    <button v-on:click="loginClicke" >Login</button>
     <div class="errore">
       {{error}}
     </div>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import ErrorMessage from './ErrorMessage.vue'
 /*
   TODO DA SISTEMARE è SOLO IN FASE EMBRIONALE
   SE LA LOGIN VA BENE BISOGNA CREARE IL REDIREZIONAMENTO ALLA HOME
@@ -24,6 +25,9 @@
   DAL CASINO CHE VERRà DOPO
 */
   export default {
+    components: {
+      ErrorMessage
+    },
     data: function() {
       return {
         logUser: {},
@@ -32,7 +36,7 @@
       }
     },
     methods: {
-      loginClick: function(){
+      loginClicke: function(){
         if(this.logUser && this.logUser.username && this.logUser.password){
           let user = {};
           user.username = this.logUser.username;
@@ -46,9 +50,14 @@
             if(result.success){
              this.success = 'A CANNONE!!!!!' + result.message;
              this.error = '';
+             this.showLogin = true;
+             console.log("logged 1")
+             this.$emit('logged');
+             console.log("logged 2")
            } else {
             this.success = '';
             this.error = result.message;
+            this.showLogin = false;
           }
 
         }, (response) => {

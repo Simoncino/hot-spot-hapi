@@ -12,9 +12,9 @@ module.exports = {
     const user = request.payload
     let result = {
       success: false,
-      message: 'PORCA MADONNA'
+      message: 'PORCA MADONNA non sei loggato!!!!!!'
     };
-    if(user && user.username && user.password){
+    if(user && user.username && user.password && user.username == 'a' && user.password == 'a'){
       result.success = true;
       result.message = 'Loggato correttamente dio FROCIO';
     }
