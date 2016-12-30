@@ -4,18 +4,15 @@
     <table cellpadding="2" cellspacing="2" class="simpleTable">
 
       <simpleRow v-for="(item, index) in simpleList" 
-        v-bind:elemento="item" 
-        v-bind:indice="index" 
-        v-on:eliminaFromList="elimina"></simpleRow>
-
+      v-bind:elemento="item" 
+      v-bind:indice="index" 
+      v-on:eliminaFromList="elimina"></simpleRow>
     </table>
   </div>
-  
 </template>
-
 <script>
 
-import SimpleRow from './SimpleRow.vue'
+  import SimpleRow from './SimpleRow.vue'
 /*
   TODO DA SISTEMARE è SOLO IN FASE EMBRIONALE
   SE LA LOGIN VA BENE BISOGNA CREARE IL REDIREZIONAMENTO ALLA HOME
@@ -23,11 +20,12 @@ import SimpleRow from './SimpleRow.vue'
   DAL CASINO CHE VERRà DOPO
   */
   export default {
+    created: function(){
+      this.getLista();
+    },
     data: function() {
       return {
         logUser: {},
-        error: '',
-        success: '',
         simpleList: []
       }
     },
