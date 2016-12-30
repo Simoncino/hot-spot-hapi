@@ -51,9 +51,7 @@ import ErrorMessage from './ErrorMessage.vue'
              this.success = 'A CANNONE!!!!!' + result.message;
              this.error = '';
              this.showLogin = true;
-             console.log("logged 1")
              this.$emit('logged');
-             console.log("logged 2")
            } else {
             this.success = '';
             this.error = result.message;
