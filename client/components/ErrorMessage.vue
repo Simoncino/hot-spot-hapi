@@ -1,9 +1,8 @@
-<templete>
+<template>
 	<div class="erore">
 		|||||----{{messaggio}}----|||||
 	</div>
-	
-</templete>
+</template>
 
 <script>
 	export default {
@@ -11,15 +10,12 @@
 			messaggio: ''
 		}
 	}
-	
 </script>
 
 <style lang="sass">
 	.erore{
-		border: 3px solid gray;
-		h1 {
-			color: red;
-		}
+		margin: 0 auto;
+		color: red;
 	}
 
 </style>

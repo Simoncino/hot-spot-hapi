@@ -2,24 +2,26 @@
   <div class="containerLogin">
     <h2>{{varfiglio}}</h2>
     showLogin : {{showLogin}}
-    <div v-if="showLogin">
-     <Login v-on:logged="showTrue"></Login> 
-   </div>
-   <div v-else>
-    <SimpleList></SimpleList>
-    <hr>
-    <router-link to="/foo">Go to Foo</router-link>
-    <router-link to="/bar">Go to Bar</router-link>
-    <hr>
-    <router-view></router-view>
+    <template v-if="showLogin">
+      <Login v-on:logged="showTrue"></Login> 
+    </template>
+    <template v-else>
+      <SimpleList></SimpleList>
+      <hr>
+      <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to Bar</router-link>
+      <hr>
+      <router-view></router-view>
+      <hr>
+      <ErrorMessage :messaggio="success"></ErrorMessage>
+    </template>
   </div>
-</div>
-
 </template>
 
 <script>
   import SimpleList from './components/SimpleList.vue'
   import Login from './components/Login.vue'
+  import ErrorMessage from './components/ErrorMessage.vue'
 
   export default {
     props: {
@@ -28,7 +30,8 @@
     },
     components: {
       SimpleList,
-      Login
+      Login,
+      ErrorMessage
     },
     data: function() {
       return {
