@@ -43,11 +43,15 @@
       }
     },
     methods: {
-      showTrue: function(){
-        this.showLogin = false;
-      }
-    }
-  }
+      showTrue: function(user){
+        if(user){
+         this.showLogin = false;
+         this.logUser = user; 
+       }
+
+     }
+   }
+ }
 </script>
 
 <style lang="sass">

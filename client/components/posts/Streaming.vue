@@ -39,9 +39,6 @@
 		},
 		methods: {
 			getLista: function(){
-
-				console.log("per vedere se esiste l'utente passatogli: ", this.logUser);
-
 				this.axios({
 					method: 'GET',
 					url: '/api/postStreaming'

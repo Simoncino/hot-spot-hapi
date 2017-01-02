@@ -40,8 +40,7 @@
              this.success = 'A CANNONE!!!!!' + result.message;
              this.error = '';
              this.showLogin = true;
-             this.$emit('logged');
-             this.logUser = result.user
+             this.$emit('logged', result.user);
            } else {
             this.success = '';
             this.error = result.message;
