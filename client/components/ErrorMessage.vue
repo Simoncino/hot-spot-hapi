@@ -1,6 +1,6 @@
 <template>
 	<div class="erore">
-		|||||----{{messaggio}}----|||||
+		Messaggio: {{messaggio}}
 	</div>
 </template>
 

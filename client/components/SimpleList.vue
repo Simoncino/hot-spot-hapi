@@ -1,5 +1,6 @@
 <template>
   <div class="simpleList">
+    <h3>SimpleList</h3>
     <button v-on:click="getLista">Carica lista</button>
     <table cellpadding="2" cellspacing="2" class="simpleTable">
 
@@ -13,20 +14,14 @@
 <script>
 
   import SimpleRow from './SimpleRow.vue'
-/*
-  TODO DA SISTEMARE è SOLO IN FASE EMBRIONALE
-  SE LA LOGIN VA BENE BISOGNA CREARE IL REDIREZIONAMENTO ALLA HOME
-  BISOGNA INOLTRE METTERE QUESTO FILE IN UNA CARTELLA PER SEPARARLO 
-  DAL CASINO CHE VERRà DOPO
-  */
   export default {
     created: function(){
       this.getLista();
     },
     data: function() {
       return {
-        logUser: {},
         simpleList: []
+        ,message: ''
       }
     },
     components: {
@@ -41,23 +36,22 @@
 
         this.axios({
           method: 'GET',
-          url: '/api/simpleList'
+          url: '/api/usersList'
         }).then((response) => {
           const result = response.data;
           if(result.success){
            this.success = 'A CANNONE!!!!!' + result.message;
-           this.error = '';
+           this.message = '';
            this.simpleList = result.lista;
-           /*console.log(this.simpleList);*/
          } else {
           this.success = '';
-          this.error = result.message;
+          this.message = result.message;
           this.simpleList = [];
 
         }
 
       }, (response) => {
-        this.error = response.data
+        this.message = response.data
         this.success = ''
       })
 

@@ -30,11 +30,10 @@ new Vue({
 	router,
 	el: '#app',
 	data: {
-		user: {},
 		varpadre: 'Messaggio da padre'
 	},
 	components: {
 		App
 	},
-	template: '<App :varfiglio="varpadre" :logUser="user"></App>'
+	template: '<App :varfiglio="varpadre"></App>'
 })

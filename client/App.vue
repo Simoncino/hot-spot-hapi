@@ -1,19 +1,21 @@
 <template>
   <div class="containerLogin">
     <h2>{{varfiglio}}</h2>
-    showLogin : {{showLogin}}
     <template v-if="showLogin">
-      <Login v-on:logged="showTrue"></Login> 
+      <Login v-on:logged="showTrue" :logUser="logUser"></Login> 
     </template>
     <template v-else>
-      <SimpleList></SimpleList>
-      <hr>
+      <h1>router-view</h1>
       <router-link to="/foo">Go to Foo</router-link>
       <router-link to="/bar">Go to Bar</router-link>
-      <hr>
       <router-view></router-view>
       <hr>
-      <ErrorMessage :messaggio="success"></ErrorMessage>
+      <Streaming :logUser="logUser"></Streaming>
+      <hr>
+      <SimpleList></SimpleList>
+      <hr>
+      <h4>PrintUtente</h4>
+      <pre>{{logUser}}</pre>
     </template>
   </div>
 </template>
@@ -21,28 +23,27 @@
 <script>
   import SimpleList from './components/SimpleList.vue'
   import Login from './components/Login.vue'
-  import ErrorMessage from './components/ErrorMessage.vue'
+  import Streaming from './components/Posts/Streaming.vue'
 
   export default {
     props: {
-      logUser: {},
       varfiglio: ''
     },
     components: {
-      SimpleList,
-      Login,
-      ErrorMessage
+      SimpleList
+      ,Login
+      ,Streaming
     },
     data: function() {
       return {
-        error: '',
-        success: '',
-        showLogin: true
+        error: ''
+        ,success: ''
+        ,showLogin: true
+        ,logUser: {}
       }
     },
     methods: {
       showTrue: function(){
-        console.log('showTrue: function(){');
         this.showLogin = false;
       }
     }

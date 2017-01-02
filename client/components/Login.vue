@@ -5,34 +5,23 @@
     <label for="idPassword">Password:</label>
     <input id="idPassword" type="password" placeholder="password" v-model.trim="logUser.password">
     <button v-on:click="loginClicke" >Login</button>
-    <div class="errore">
-      {{error}}
-    </div>
-    <div class="success">
-      {{success}}
-    </div>
-
   </div>
   
 </template>
 
 <script>
-import ErrorMessage from './ErrorMessage.vue'
-/*
-  TODO DA SISTEMARE è SOLO IN FASE EMBRIONALE
-  SE LA LOGIN VA BENE BISOGNA CREARE IL REDIREZIONAMENTO ALLA HOME
-  BISOGNA INOLTRE METTERE QUESTO FILE IN UNA CARTELLA PER SEPARARLO 
-  DAL CASINO CHE VERRà DOPO
-*/
+/*import ErrorMessage from './ErrorMessage.vue'*/
   export default {
+    props: {
+      logUser: {}
+    },
     components: {
-      ErrorMessage
+      /*ErrorMessage*/
     },
     data: function() {
       return {
-        logUser: {},
-        error: '',
-        success: ''
+        error: ''
+        ,success: ''
       }
     },
     methods: {
@@ -52,6 +41,7 @@ import ErrorMessage from './ErrorMessage.vue'
              this.error = '';
              this.showLogin = true;
              this.$emit('logged');
+             this.logUser = result.user
            } else {
             this.success = '';
             this.error = result.message;

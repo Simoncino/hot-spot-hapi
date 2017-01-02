@@ -113,7 +113,19 @@ server.route({
 server.route({
   method: 'GET',
   path: '/api/simpleList',
-  handler: funzioni.getSimpleList 
+  handler: funzioni.getSimpleListHandler 
+});
+
+server.route({
+  method: 'GET',
+  path: '/api/postStreaming',
+  handler: funzioni.postStreamingHandler 
+});
+
+server.route({
+  method: 'GET',
+  path: '/api/usersList',
+  handler: funzioni.usersListHandler
 });
 
 
