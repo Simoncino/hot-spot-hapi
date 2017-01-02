@@ -1,13 +1,11 @@
 <template>
-	<div>
+	<div class="containerStreaming">
 		<h1>Streaming dei post</h1>
 		<template v-if="success">
-			<table cellpadding="2" cellspacing="2" class="streaming">
-
-				<Post v-for="(item, index) in streaming" 
+			<Post v-for="(item, index) in streaming" 
 				v-bind:elemento="item" 
 				v-bind:indice="index" ></Post>
-			</table>
+
 		</template>
 		<template v-else>
 			<p class="error">{{message}}</p>
@@ -47,6 +45,7 @@
 					if(result){
 						if(result.success){
 							this.streaming = result.lista;
+							this.logUser.spot = result.lista;
 						} else {
 							this.message = result.message;
 							this.streaming = [];
@@ -68,8 +67,11 @@
 </script>
 
 <style lang="sass">
-	.streaming{
+	.containerStreaming{
 		width: 40%;
+		max-height: 400px;
+		overflow-x: hidden;
+		margin: 0 auto;
 	}
 	.error{
 		color: red;
