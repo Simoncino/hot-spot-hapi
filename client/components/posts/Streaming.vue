@@ -3,8 +3,8 @@
 		<h1>Streaming dei post</h1>
 		<template v-if="success">
 			<Post v-for="(item, index) in streaming" 
-				v-bind:elemento="item" 
-				v-bind:indice="index" ></Post>
+			v-bind:elemento="item" 
+			v-bind:indice="index" ></Post>
 
 		</template>
 		<template v-else>
@@ -39,13 +39,13 @@
 			getLista: function(){
 				this.axios({
 					method: 'GET',
-					url: '/api/postStreaming'
+					url: '/api/spot/castello/posts'
 				}).then((response) => {
 					const result = response.data;
 					if(result){
 						if(result.success){
 							this.streaming = result.lista;
-							this.logUser.spot = result.lista;
+							/*this.logUser.spot = result.lista;*/
 						} else {
 							this.message = result.message;
 							this.streaming = [];

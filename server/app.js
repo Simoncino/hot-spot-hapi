@@ -128,6 +128,12 @@ server.route({
   handler: funzioni.usersListHandler
 });
 
+server.route({
+  method: 'GET',
+  path: '/api/spot/{spotid}/posts',
+  handler: funzioni.postsListHandler
+});
+
 
 server.start((err) => {
 
