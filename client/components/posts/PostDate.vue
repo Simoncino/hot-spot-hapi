@@ -1,5 +1,5 @@
 <template>
-  <span class="dataPost">
+  <span class="postData">
     {{dateFormatted}}
   </span>
   
@@ -32,7 +32,7 @@
 </script>
 
 <style lang="sass">
-  .dataPost {
+.postData {
     border: 1px solid blue;
     color: #6f6f6f;
     float: left;

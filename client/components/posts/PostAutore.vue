@@ -1,39 +1,24 @@
 <template>
-  <div class="containerPost">
-    <PostDate :timestamp="elemento.timestamp"></PostDate>
-    <!-- <div>Indice: {{indice}}</div> -->
-    <PostAutore :post="elemento"></PostAutore>
-    <div>Liv. onda: {{elemento.livelloOnda}}</div>
-    <div>Didascalia: {{elemento.didascalia}}</div>
-    <div>Foto: {{elemento.foto}}</div>
-    <div>
-      Pulsantiera con tanti <button>azione1</button>
-      <button>azione2</button>
-      <button>azione3</button>
-    </div>
-    <div class="clear"></div>
-  </div>
+  <span class="postAutore">
+    <a v-bind:href="link.link" target="_blank" v-bind:title="link.nome">
+      {{autore.username}}
+    </a>
+  </span>
 </template>
 
 <script>
-  import PostDate from './PostDate.vue'
-  import PostAutore from './PostAutore.vue'
-
   export default {
-    components: {
-      PostDate,
-      PostAutore
-    },
     props: {
       indice: 0,
-      elemento: {}
+      post: {}
     },
     created: function(){
       this.getAutore();
     },
     data: function() {
       return {
-        autore: {}
+        autore: {},
+        link: {}
       }
     },
     methods: {
@@ -47,15 +32,19 @@
           const result = response.data;
           if(result){
             if(result.success){
-              let elemento = this.elemento;
+              let elemento = this.post;
               const autori = result.lista.filter(function(item){
                 return item.id == elemento.idAutore;
               });
               this.autore = autori[0];
-              this.elemento.autore = autori[0];
+              this.post.autore = autori[0];
+
+              if(this.autore && this.autore.social){
+                this.link = this.autore.social[0];
+              }
             } else {
               this.message = result.message;
-              this.elemento.autore = {};
+              this.post.autore = {};
             }
             this.success = result.success;
           }
@@ -70,17 +59,16 @@
 </script>
 
 <style lang="sass">
-  .containerPost {
-    border: 1px solid blue;
-    min-height: 10px;
-    margin: 0 auto;
-    margin-bottom: 1em;
-  }
-  .dataPost {
-    border: 1px solid blue;
+  .postAutore {
+    border: 1px solid gray;
     color: #6f6f6f;
     float: left;
     padding: 0.5em;
+
+    a {
+      text-decoration: none;
+      color: blue;
+      text-weight: bold;
+    }
   }
-  .clear{width: 0.01em;height: 0.01em;clear:both;}
 </style>
