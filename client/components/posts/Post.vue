@@ -3,11 +3,15 @@
     <PostDate :timestamp="elemento.timestamp"></PostDate>
     <!-- <div>Indice: {{indice}}</div> -->
     <PostAutore :post="elemento"></PostAutore>
-    <div>Liv. onda: {{elemento.livelloOnda}}</div>
+    <div>
+      Liv. onda: {{elemento.livelloOnda}} --
+      <img src="../../assets/img/wave.png" alt="ondina">--
+    </div>
     <div>Didascalia: {{elemento.didascalia}}</div>
     <div>Foto: {{elemento.foto}}</div>
     <div>
-      Pulsantiera con tanti <button>azione1</button>
+      Pulsantiera con tanti 
+      <button>azione1</button>
       <button>azione2</button>
       <button>azione3</button>
     </div>
@@ -29,7 +33,7 @@
       elemento: {}
     },
     created: function(){
-      this.getAutore();
+      /*this.getAutore();*/
     },
     data: function() {
       return {
@@ -37,7 +41,7 @@
       }
     },
     methods: {
-      getAutore: function(){
+      /*getAutore: function(){
         this.axios({
           method: 'GET',
           url: '/api/usersList'
@@ -64,7 +68,7 @@
           this.error = response.data
           this.success = ''
         })
-      }
+      }*/
     }
   }
 </script>

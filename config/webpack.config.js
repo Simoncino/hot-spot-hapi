@@ -16,7 +16,6 @@ module.exports = {
     alias: {
       'client': path.resolve(__dirname, '../client'),
       'server': path.resolve(__dirname, '../server'),
-      'components': path.resolve(__dirname, '../clients/components'),
       'vue$': 'vue/dist/vue.common.js'
     }
   },
@@ -48,6 +47,9 @@ module.exports = {
     }]
   },
   vue: {
+    html: {
+      root: path.resolve(__dirname, '../client/assets')
+    },
     loaders: {
       'sass': 'vue-style!css!sass'
     }
@@ -63,6 +65,6 @@ module.exports = {
       template: path.resolve(__dirname, '../build/index_dev.html'),
       inject: true
     })
-  ],
-  devtool: '#eval'
-}
+    ],
+    devtool: '#eval'
+  }
