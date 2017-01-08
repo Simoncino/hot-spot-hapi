@@ -1,12 +1,14 @@
 <template>
   <div class="containerPost">
-    <PostDate :timestamp="elemento.timestamp"></PostDate>
     <!-- <div>Indice: {{indice}}</div> -->
+    <PostDate :timestamp="elemento.timestamp"></PostDate>
     <PostAutore :post="elemento"></PostAutore>
-    <div>
-      Liv. onda: {{elemento.livelloOnda}} --
-      <img src="../../assets/img/wave.png" alt="ondina">--
-    </div>
+    <!-- <div>
+      Liv. onda: {{elemento.livelloOnda}} -- PORCA MADONNA LADRA
+      <img src="../../assets/img/wave5.gif" alt="ondina">--
+    </div> -->
+    <PostOnda :livelloOnda="elemento.livelloOnda"></PostOnda>
+
     <div>Didascalia: {{elemento.didascalia}}</div>
     <div>Foto: {{elemento.foto}}</div>
     <div>
@@ -22,53 +24,22 @@
 <script>
   import PostDate from './PostDate.vue'
   import PostAutore from './PostAutore.vue'
+  import PostOnda from './PostOnda.vue'
 
   export default {
     components: {
       PostDate,
+      PostOnda,
       PostAutore
     },
     props: {
       indice: 0,
       elemento: {}
     },
-    created: function(){
-      /*this.getAutore();*/
-    },
     data: function() {
       return {
         autore: {}
       }
-    },
-    methods: {
-      /*getAutore: function(){
-        this.axios({
-          method: 'GET',
-          url: '/api/usersList'
-        }).then((response) => {
-          //in realta' questa funzione sarebbe 
-          //get utente by id, da sistemare lato backend
-          const result = response.data;
-          if(result){
-            if(result.success){
-              let elemento = this.elemento;
-              const autori = result.lista.filter(function(item){
-                return item.id == elemento.idAutore;
-              });
-              this.autore = autori[0];
-              this.elemento.autore = autori[0];
-            } else {
-              this.message = result.message;
-              this.elemento.autore = {};
-            }
-            this.success = result.success;
-          }
-
-        }, (response) => {
-          this.error = response.data
-          this.success = ''
-        })
-      }*/
     }
   }
 </script>
