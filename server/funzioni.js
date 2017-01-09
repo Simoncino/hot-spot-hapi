@@ -131,7 +131,7 @@ module.exports = {
   }
 
   ,photoListHandler: function (request, reply) {
-    const lista = require('./json_fake/foto.json');
+    const lista = require('./json_fake/photos.json');
 
     const result = {
       success: true,
@@ -143,7 +143,7 @@ module.exports = {
   
 
   ,photoHandler: function (request, reply) {
-    const lista = require('./json_fake/foto.json');
+    const lista = require('./json_fake/photos.json');
 
     const id = request.params.photoid;
     const photos =  lista.filter(function(item){
