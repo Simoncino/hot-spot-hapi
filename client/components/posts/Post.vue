@@ -3,14 +3,12 @@
     <!-- <div>Indice: {{indice}}</div> -->
     <PostDate :timestamp="elemento.timestamp"></PostDate>
     <PostAutore :post="elemento"></PostAutore>
-    <!-- <div>
-      Liv. onda: {{elemento.livelloOnda}} -- PORCA MADONNA LADRA
-      <img src="../../assets/img/wave5.gif" alt="ondina">--
-    </div> -->
     <PostOnda :livelloOnda="elemento.livelloOnda"></PostOnda>
 
     <div>Didascalia: {{elemento.didascalia}}</div>
-    <div>Foto: {{elemento.foto}}</div>
+    <!-- <div>Foto: {{elemento.foto}}</div> -->
+    <PostImg :post="elemento"></PostImg>
+    sara piace ingoiare
     <div>
       Pulsantiera con tanti 
       <button>azione1</button>
@@ -25,11 +23,13 @@
   import PostDate from './PostDate.vue'
   import PostAutore from './PostAutore.vue'
   import PostOnda from './PostOnda.vue'
+  import PostImg from './PostImg.vue'
 
   export default {
     components: {
       PostDate,
       PostOnda,
+      PostImg,
       PostAutore
     },
     props: {

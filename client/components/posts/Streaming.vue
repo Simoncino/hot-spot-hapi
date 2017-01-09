@@ -39,13 +39,12 @@
 			getLista: function(){
 				this.axios({
 					method: 'GET',
-					url: '/api/spot/castello/posts'
+					url: '/api/spot/1/posts'
 				}).then((response) => {
 					const result = response.data;
 					if(result){
 						if(result.success){
 							this.streaming = result.lista;
-							/*this.logUser.spot = result.lista;*/
 						} else {
 							this.message = result.message;
 							this.streaming = [];

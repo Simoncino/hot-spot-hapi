@@ -3,7 +3,7 @@
 		"id": "1",
 		"idAutore": "1",
 		"livelloOnda": 2,
-		"foto": "foto1.jpg",
+		"photo": {"id": 1},
 		"didascalia": "piccola didascalia 1",
 		"timestamp": 0,
 		"visibilita": []
@@ -12,7 +12,7 @@
 		"id": "2",
 		"idAutore": "2",
 		"livelloOnda": 3,
-		"foto": "foto2.jpg",
+		"photo": {"id": 1},
 		"didascalia": "piccola didascalia 2",
 		"timestamp": 0,
 		"visibilita": []
@@ -21,7 +21,7 @@
 		"id": "3",
 		"idAutore": "3",
 		"livelloOnda": 2,
-		"foto": "foto1.jpg",
+		"photo": {"id": 1},
 		"didascalia": "piccola didascalia 3",
 		"timestamp": 0,
 		"visibilita": []
@@ -30,7 +30,7 @@
 		"id": "4",
 		"idAutore": "4",
 		"livelloOnda": 4,
-		"foto": "foto1.jpg",
+		"photo": {"id": 1},
 		"didascalia": "piccola didascalia 4",
 		"timestamp": 0,
 		"visibilita": []
@@ -39,7 +39,7 @@
 		"id": "5",
 		"idAutore": "1",
 		"livelloOnda": 2,
-		"foto": "foto1.jpg",
+		"photo": {"id": 1},
 		"didascalia": "piccola didascalia 5",
 		"timestamp": 0,
 		"visibilita": []

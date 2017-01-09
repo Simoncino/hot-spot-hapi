@@ -102,64 +102,69 @@ server.register([Inert], function (err) {
       reply.file('../public/index.html');
     }
   });
+
+  server.route({
+    method: 'POST',
+    path: '/api/login',
+    handler: funzioni.loginHandler 
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/simpleList',
+    handler: funzioni.getSimpleListHandler 
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/postStreaming',
+    handler: funzioni.postStreamingHandler 
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/usersList',
+    handler: funzioni.usersListHandler
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/user/{userid}',
+    handler: funzioni.userHandler
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/spot/{spotid}/posts',
+    handler: funzioni.postsListHandler
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/spots',
+    handler: funzioni.spotsListHandler
+  });
+
+
+  server.route({
+    method: 'GET',
+    path: '/api/post/{postid}/photos',
+    handler: funzioni.photoListHandler
+  });
+
+
+  server.route({
+    method: 'GET',
+    path: '/api/post/{postid}/photos/{photoid}',
+    handler: funzioni.photoHandler
+  });
+  server.route({
+    method: 'GET',
+    path: '/api/post/{postid}/photosImg/{photoid*}',
+    handler: funzioni.photoImgHandler
+  });
+
 });
-
-server.route({
-  method: 'POST',
-  path: '/api/login',
-  handler: funzioni.loginHandler 
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/simpleList',
-  handler: funzioni.getSimpleListHandler 
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/postStreaming',
-  handler: funzioni.postStreamingHandler 
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/usersList',
-  handler: funzioni.usersListHandler
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/user/{userid}',
-  handler: funzioni.userHandler
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/spot/{spotid}/posts',
-  handler: funzioni.postsListHandler
-});
-
-server.route({
-  method: 'GET',
-  path: '/api/spots',
-  handler: funzioni.spotsListHandler
-});
-
-
-server.route({
-  method: 'GET',
-  path: '/api/post/{postid}/photos',
-  handler: funzioni.photoListHandler
-});
-
-
-server.route({
-  method: 'GET',
-  path: '/api/post/{postid}/photos/{photoid}',
-  handler: funzioni.photoHandler
-});
-
 
 server.start((err) => {
 

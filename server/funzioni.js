@@ -109,6 +109,8 @@ module.exports = {
       let data = new Date((new Date(2017, 0, 1)).getTime() + Math.random() * ((new Date()).getTime() - (new Date(2000, 0, 1)).getTime()));
       lista[i].timestamp = data.getTime();
       lista[i].livelloOnda = Math.floor((Math.random() * 4) + 1);
+      if(!lista[i].photo) lista[i].photo = {};
+      lista[i].photo.id = Math.floor((Math.random() * 6) + 1);
     }
 
     const result = {
@@ -141,7 +143,6 @@ module.exports = {
     reply(result);
   }
   
-
   ,photoHandler: function (request, reply) {
     const lista = require('./json_fake/photos.json');
 
@@ -150,7 +151,7 @@ module.exports = {
       return item.id == id;
     });  
 
-    const item = {};
+    let item = {};
     if(photos && photos.length){
       item = photos[0];
     }
@@ -161,6 +162,24 @@ module.exports = {
     };
     reply(result);
   }
+
+  ,photoImgHandler: function (request, reply) {
+    console.log("porca madonna ladra")
+    const lista = require('./json_fake/photos.json');
+
+    const id = request.params.photoid;
+    const photos =  lista.filter(function(item){
+      return item.id == id;
+    });  
+
+    let item = {};
+    if(photos && photos.length){
+      item = photos[0];
+    }
+    console.log('./img/' + item.link);
+    reply.file('./img/' + item.link);
+  }
+
 
 
 }
