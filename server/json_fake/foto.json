@@ -1,0 +1,22 @@
+[
+	{
+		"id":"1"
+		,"link":""
+		,"nome":"Foto 1"
+		,"didascalia":"Vista panoramica"
+
+	}
+	,{
+		"id":"2"
+		,"link":""
+		,"nome":"Foto 2"
+		,"didascalia":"Vista sinistra"
+	}
+	,{
+		"id":"3"
+		,"link":""
+		,"nome":"Foto 3"
+		,"didascalia":"Vista destra"
+	}
+
+]

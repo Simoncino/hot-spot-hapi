@@ -130,8 +130,32 @@ server.route({
 
 server.route({
   method: 'GET',
+  path: '/api/user/{userid}',
+  handler: funzioni.userHandler
+});
+
+server.route({
+  method: 'GET',
   path: '/api/spot/{spotid}/posts',
   handler: funzioni.postsListHandler
+});
+
+server.route({
+  method: 'GET',
+  path: '/api/spots',
+  handler: funzioni.spotsListHandler
+});
+
+server.route({
+  method: 'GET',
+  path: '/api/post/{postid}/photos',
+  handler: funzioni.photoListHandler
+});
+
+server.route({
+  method: 'GET',
+  path: '/api/post/{postid}/photos/{photoid}',
+  handler: funzioni.photoHandler
 });
 
 
