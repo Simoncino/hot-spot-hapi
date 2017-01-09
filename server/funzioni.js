@@ -141,6 +141,7 @@ module.exports = {
     reply(result);
   }
   
+
   ,photoHandler: function (request, reply) {
     const lista = require('./json_fake/foto.json');
 
@@ -160,9 +161,6 @@ module.exports = {
     };
     reply(result);
   }
-
-
-
 
 
 }

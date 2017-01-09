@@ -146,11 +146,13 @@ server.route({
   handler: funzioni.spotsListHandler
 });
 
+
 server.route({
   method: 'GET',
   path: '/api/post/{postid}/photos',
   handler: funzioni.photoListHandler
 });
+
 
 server.route({
   method: 'GET',
