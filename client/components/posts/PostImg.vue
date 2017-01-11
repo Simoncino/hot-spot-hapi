@@ -1,9 +1,7 @@
 <template>
   <div class="postImg">
-    <iframe v-bind:src="imgSrc" v-bind:alt="photo.nome">
-    </iframe>
+    <img v-bind:src="imgSrc" v-bind:alt="photo.nome" />
   </div>
-  
 </template>
 
 <script>
@@ -21,7 +19,7 @@
     },
     computed: {
       imgSrc: function(){
-        const url = 'http://localhost:3000/api/post/'+this.post.id+'/photoImg/'+this.post.photo.id;
+        const url = '/api/post/'+this.post.id+'/photosImg/'+this.post.photo.id;
         console.log(url);
         return url;
       }

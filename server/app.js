@@ -58,7 +58,7 @@ server.register([Inert], function (err) {
     handler: {
       directory: {
         path: __dirname + '/public/assets/',
-        listing: false,
+        listing: true,
         index: false
       }
     }
@@ -99,6 +99,7 @@ server.register([Inert], function (err) {
     method: 'GET',
     path: '/{path*}',
     handler: function (request, reply) {
+      console.log('request.params.path:',request.params.path)
       reply.file('../public/index.html');
     }
   });
@@ -152,15 +153,15 @@ server.register([Inert], function (err) {
     handler: funzioni.photoListHandler
   });
 
-
   server.route({
     method: 'GET',
     path: '/api/post/{postid}/photos/{photoid}',
     handler: funzioni.photoHandler
   });
+
   server.route({
     method: 'GET',
-    path: '/api/post/{postid}/photosImg/{photoid*}',
+    path: '/api/post/{postid}/photosImg/{photoid}',
     handler: funzioni.photoImgHandler
   });
 

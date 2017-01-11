@@ -164,7 +164,6 @@ module.exports = {
   }
 
   ,photoImgHandler: function (request, reply) {
-    console.log("porca madonna ladra")
     const lista = require('./json_fake/photos.json');
 
     const id = request.params.photoid;
@@ -176,8 +175,8 @@ module.exports = {
     if(photos && photos.length){
       item = photos[0];
     }
-    console.log('./img/' + item.link);
-    reply.file('./img/' + item.link);
+    console.log('4 reply.file ../public/assets/img/' + item.link);
+    reply.file('../public/assets/img/' + item.link);
   }
 
 

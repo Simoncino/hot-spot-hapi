@@ -4,7 +4,7 @@
   "author": "IlSima <simone.lacarpia@gmail.com>",
   "scripts": {
     "dev": "node ./server/app.js",
-    "build": "webpack --progress --hide-modules --config config/production.webpack.config.js"
+    "build": "webpack --progress --hide-modules --config config/webpack.config.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
