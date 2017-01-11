@@ -175,8 +175,8 @@ module.exports = {
     if(photos && photos.length){
       item = photos[0];
     }
-    console.log('4 reply.file ../public/assets/img/' + item.link);
-    reply.file('../public/assets/img/' + item.link);
+    /*console.log('reply.file: ./img/' + item.link);*/
+    reply.file('./img/' + item.link);
   }
 
 

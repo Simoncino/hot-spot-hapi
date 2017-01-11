@@ -1,6 +1,6 @@
 <template>
   <div class="postImg">
-    <img v-bind:src="imgSrc" v-bind:alt="photo.nome" />
+    <img v-bind:src="imgSrc" v-bind:alt="photo.nome" class="postImg-img" />
   </div>
 </template>
 
@@ -51,10 +51,13 @@
 </script>
 
 <style lang="sass">
-.postImg {
+  .postImg {
     border: 1px solid blue;
     color: #6f6f6f;
     clear: both;
     padding: 0.5em;
+  }
+  .postImg-img {
+    max-width: 100%;
   }
 </style>

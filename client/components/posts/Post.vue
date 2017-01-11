@@ -8,7 +8,6 @@
     <div>Didascalia: {{elemento.didascalia}}</div>
     <!-- <div>Foto: {{elemento.foto}}</div> -->
     <PostImg :post="elemento"></PostImg>
-    sara piace ingoiare
     <div>
       Pulsantiera con tanti 
       <button>azione1</button>

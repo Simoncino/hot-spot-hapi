@@ -2,12 +2,18 @@
 
 const Hapi = require('hapi');
 const Inert = require('inert');
+const Path = require('path');
 
 const funzioni = require('./funzioni.js');
 
 const server = new Hapi.Server();
 server.connection({
-  port: 3000
+  port: 3000,
+  routes: {
+    files: {
+      relativeTo: Path.join(__dirname, 'assets')
+    }
+  }
 });
 
 // Register webpack HMR, fallback to development environment
@@ -165,6 +171,14 @@ server.register([Inert], function (err) {
     handler: funzioni.photoImgHandler
   });
 
+});
+
+server.route({
+  method: 'GET',
+  path: '/picture2',
+  handler: function (request, reply) {
+    reply.file('./img3.jpeg');
+  }
 });
 
 server.start((err) => {
