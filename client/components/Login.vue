@@ -12,16 +12,13 @@
 <script>
 /*import ErrorMessage from './ErrorMessage.vue'*/
   export default {
-    props: {
-      logUser: {}
-    },
     components: {
-      /*ErrorMessage*/
     },
     data: function() {
       return {
         error: ''
         ,success: ''
+        ,logUser: {}
       }
     },
     methods: {

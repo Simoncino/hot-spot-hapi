@@ -1,19 +1,12 @@
 <template>
   <div class="containerLogin">
-    <h2>{{varfiglio}}</h2>
+    <h2>App.vue</h2>
     <template v-if="showLogin">
-      <Login v-on:logged="showTrue" :logUser="logUser"></Login> 
+      <Login v-on:logged="setUtente"></Login> 
     </template>
     <template v-else>
-      <h1>router-view</h1>
-      <router-link to="/foo">Go to Foo</router-link>
-      <router-link to="/bar">Go to Bar</router-link>
+      <h4>creare la home.vue</h4>
       <router-view></router-view>
-      <hr>
-      <Streaming :logUser="logUser"></Streaming>
-      <hr>
-      <SimpleList></SimpleList>
-      <hr>
       <h4>PrintUtente</h4>
       <pre>{{logUser}}</pre>
     </template>
@@ -26,8 +19,14 @@
   import Streaming from './components/Posts/Streaming.vue'
 
   export default {
+    created: function(){
+      let loggedUser = this.s_info.loggedUser;
+      if(loggedUser.username){
+        showLogin = false;
+      }
+    },
     props: {
-      varfiglio: ''
+      s_info: {}
     },
     components: {
       SimpleList
@@ -43,10 +42,12 @@
       }
     },
     methods: {
-      showTrue: function(user){
+      setUtente: function(user){
         if(user){
          this.showLogin = false;
-         this.logUser = user; 
+         this.logUser = user;
+         this.s_info.loggedUser = user;
+         /*this.router.push('foo')*/
        }
 
      }

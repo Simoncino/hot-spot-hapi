@@ -7,6 +7,7 @@ module.exports = {
 
   ,loginHandler: function (request, reply) {
     const userReq = request.payload
+    console.log('userReq',userReq);
     let result = {
       success: false,
       message: 'PORCA MADONNA non sei loggato COJONE!!!!!!'
@@ -15,12 +16,14 @@ module.exports = {
     const users = require('./json_fake/userList.json');
     let user = null;
     for(let i = 0; i < users.length; i++){
-      if(userReq.username == users[i].username || userReq.password == users[i].password){
+      if(userReq.username == users[i].username 
+        && userReq.password == users[i].password){
         user = users[i];
         break;
       }
     }
 
+    console.log('trovato', user)
     if(!user){
       user = require('./json_fake/user.json');
     }
